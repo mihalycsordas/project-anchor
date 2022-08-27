@@ -1,0 +1,34 @@
+/**
+ * Spacer helper
+*/
+.spacer {
+  width: 0;
+  height: 0;
+  margin: 0;
+  border: none;
+
+  @each $space in $spaces {
+    &--#{$space} {
+      margin-bottom: to-rem($space * 1px);
+    }
+  }
+}
+
+/**
+ * Responsive
+*/
+@if $responsive {
+  @each $name in $breakpoint-has-helpers {
+    $breakpoint: map-get($breakpoints, $name);
+
+    @include media('>=#{$breakpoint}') {
+      .spacer {
+        @each $space in $spaces {
+          &--#{$name}-#{$space} {
+            margin-bottom: to-rem($space * 1px);
+          }
+        }
+      }
+    }
+  }
+}

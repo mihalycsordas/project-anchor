@@ -1,0 +1,29 @@
+/**
+ * Gap helper
+*/
+.gap {
+  @each $gap in $gaps {
+    &--#{$gap} {
+      gap: to-rem($gap * 1px);
+    }
+  }
+}
+
+/**
+ * Responsive
+*/
+@if $responsive {
+  @each $name in $breakpoint-has-helpers {
+    $breakpoint: map-get($breakpoints, $name);
+
+    @include media('>=#{$breakpoint}') {
+      .gap {
+        @each $gap in $gaps {
+          &--#{$name}-#{$gap} {
+            margin-bottom: to-rem($gap * 1px);
+          }
+        }
+      }
+    }
+  }
+}

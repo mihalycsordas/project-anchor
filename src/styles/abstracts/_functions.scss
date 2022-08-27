@@ -1,0 +1,19 @@
+@use 'sass:math';
+@use 'sass:list';
+
+@function to-rem($targets, $context: 16px) {
+  $values: ();
+  @each $target in $targets {
+    @if type-of($target) == 'number' and index('px', unit($target)) {
+      $values: list.append($values, math.div($target, $context) * 1rem);
+    } @else {
+      $values: list.append($values, $target);
+    }
+  }
+
+  @return $values;
+}
+
+@function toRGB($color) {
+  @return 'rgb(' + red($color) + ', ' + green($color) + ', ' + blue($color) + ')';
+}

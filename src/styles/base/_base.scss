@@ -1,0 +1,120 @@
+body {
+  font-family: $base-font-family;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: var(--primary-text-color);
+
+  height: 100%;
+
+  -ms-overflow-style: scrollbar;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/**
+ * Headings
+*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $base-font-family;
+  font-weight: 700;
+  line-height: 1.2em;
+
+  margin-bottom: to-rem(8px);
+
+  @at-root
+    p + &,
+    ul + &,
+    blockquote + & {
+    margin-top: to-rem(32px);
+  }
+}
+
+input {
+  width: 100%;
+  color: var(--primary-text-color);
+  font-size: $font-size-base;
+  font-weight: 600;
+
+  &::placeholder {
+    opacity: 1;
+    font-weight: 400;
+    color: #ddd;
+  }
+}
+
+/**
+ * Set size of headings
+*/
+@each $name, $size in $heading-sizes {
+  #{$name} {
+    font-size: to-rem(nth($size, 1));
+    line-height: to-rem(nth($size, 2));
+  }
+}
+
+em {
+  font-style: italic;
+}
+
+p {
+  margin-bottom: to-rem(16px);
+}
+
+b,
+strong {
+  font-weight: 900;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+i{
+  -webkit-text-stroke-width: to-rem(0.3px);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+@media print {
+  header,
+  footer,
+  button,
+  #drift-widget-container,
+  .header-title-section,
+  .breadcrumb,
+  .app-cart-widget,
+  .app-cart-widget-open,
+  .app-cart-widget-overlay,
+  .hide-on-print {
+    display: none;
+  }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #ccc;
+}

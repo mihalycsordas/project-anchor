@@ -1,0 +1,121 @@
+/**
+ * Text type helpers
+*/
+.text {
+  // align
+  &--left {
+    text-align: left;
+  }
+
+  &--right {
+    text-align: right;
+  }
+
+  &--center {
+    text-align: center;
+  }
+
+  &--justify {
+    text-align: justify;
+  }
+
+  &--one-liner {
+    white-space: nowrap;
+  }
+
+  // weight
+  &--regular {
+    font-weight: 400;
+  }
+
+  &--medium {
+    font-weight: 500;
+  }
+
+  &--bold {
+    font-weight: 700;
+    font-family: 'Roboto Black', sans-serif;
+  }
+
+  // size
+  &--xsmall {
+    font-size: $font-size-xsmall;
+    line-height: $line-height-xsmall;
+  }
+
+  &--small {
+    font-size: $font-size-small;
+    line-height: $line-height-small;
+  }
+
+  &--normal {
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+  }
+
+  &--large {
+    font-size: $font-size-large;
+    line-height: $line-height-large;
+  }
+
+  &--xlarge {
+    font-size: $font-size-xlarge;
+    line-height: $line-height-xlarge;
+  }
+
+  &--xxlarge {
+    font-size: $font-size-xxlarge;
+    line-height: $line-height-xxlarge;
+  }
+
+  // color
+  &--brand {
+    color: var(--primary-color);
+  }
+
+  &--highlighted-1 {
+    color: var(--highlight-color-1);
+  }
+
+  &--highlighted-2 {
+    color: var(--highlight-color-2);
+  }
+
+  &--highlighted-3 {
+    color: var(--highlight-color-3);
+  }
+
+  &--secondary {
+    color: var(--secondary-text-color);
+  }
+
+  &--accent {
+    color: var(--accent-text-color);
+  }
+}
+
+@if $responsive {
+  @each $name in $breakpoint-has-helpers {
+    $breakpoint: map-get($breakpoints, $name);
+
+    @include media('>=#{$breakpoint}') {
+      .text {
+        &--#{$name}-left {
+          text-align: left;
+        }
+
+        &--#{$name}-right {
+          text-align: right;
+        }
+
+        &--#{$name}-center {
+          text-align: center;
+        }
+
+        &--#{$name}-justify {
+          text-align: justify;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+@use 'abstracts/functions' as *;
+
+/**
+ * Images Path
+*/
+$path-images: '/assets/images/';
+
+/**
+ * Custom
+*/
+$responsive: true;
+
+/**
+ * Typography
+*/
+$base-font-family: 'Roboto', sans-serif;
+
+$font-size-xxxxlarge: to-rem(48px);
+$font-size-xxxlarge: to-rem(36px);
+$font-size-xxlarge: to-rem(32px);
+$font-size-xlarge: to-rem(22px);
+$font-size-large: to-rem(18px);
+$font-size-base: to-rem(14px);
+$font-size-small: to-rem(12px);
+$font-size-xsmall: to-rem(10px);
+
+$line-height-xxxxlarge: to-rem(52px);
+$line-height-xxxlarge: to-rem(40px);
+$line-height-xxlarge: to-rem(36px);
+$line-height-xlarge: to-rem(26px);
+$line-height-large: to-rem(22px);
+$line-height-base: to-rem(18px);
+$line-height-small: to-rem(16px);
+$line-height-xsmall: to-rem(14px);
+
+/**
+ * Heading sizes
+*/
+$heading-sizes: (
+  h1: to-rem(32px) to-rem(40px),
+  h2: to-rem(28px) to-rem(36px),
+  h3: to-rem(22px) to-rem(26px),
+  h4: to-rem(18px) to-rem(22px),
+  h5: to-rem(14px) to-rem(16px),
+  h6: to-rem(12px) to-rem(14px),
+);
