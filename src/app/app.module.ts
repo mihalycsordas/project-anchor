@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import {HttpClientModule} from "@angular/common/http";
+import {LayoutModule} from "@app/layout/layout.module";
 
 @NgModule({
   declarations: [
@@ -10,7 +11,9 @@ import {HttpClientModule} from "@angular/common/http";
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+
+    LayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

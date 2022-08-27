@@ -1,0 +1,17 @@
+/**
+ * Split
+*/
+.split {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  &--top {
+    align-items: flex-start;
+  }
+
+  &--bottom {
+    align-items: flex-end;
+  }
+}

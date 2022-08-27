@@ -1,0 +1,8 @@
+.divider {
+  @each $divider in $dividers {
+    &--#{$divider} {
+      margin-top: to-rem($divider * 1px);
+      margin-bottom: to-rem($divider * 1px);
+    }
+  }
+}
