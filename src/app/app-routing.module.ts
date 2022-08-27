@@ -1,15 +1,10 @@
 import {RouterModule, Routes} from "@angular/router";
 import {NgModule} from "@angular/core";
+import {HeaderComponent} from "@app/layout/components";
 
 const routes: Routes = [
-  {
-    path: '',
-    pathMatch: 'full',
-  },
-  {
-    path: '**',
-    redirectTo: '',
-  },
+  { path: '', redirectTo: '/pages', pathMatch: 'full' },
+  { path: 'pages', component: HeaderComponent },
 ];
 
 @NgModule({
