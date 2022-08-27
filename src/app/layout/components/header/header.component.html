@@ -1,1 +1,8 @@
-<p>header works!</p>
+<header>
+  <ul>
+    <li *ngFor="let navigationItem of navigationItems; let i=index">
+      <i *ngIf="navigationItem.fields.icon.length" class="{{ navigationItem.fields.icon }}"></i>
+      <a [routerLink]="navigationItem.fields.url" [ngClass]="navigationItem.fields.class_name">{{ navigationItem.fields.label }}</a>
+    </li>
+  </ul>
+</header>
