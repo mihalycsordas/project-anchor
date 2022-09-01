@@ -3,12 +3,22 @@ body {
   font-size: $font-size-base;
   line-height: $line-height-base;
   color: var(--primary-text-color);
-
+  background-color: var(--background-strongest);
   height: 100%;
 
   -ms-overflow-style: scrollbar;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.container{
+  margin: 0 auto;
+  max-width: 980px;
+  padding: 0 22px;
+  position: relative;
+  z-index: 2;
+  padding-left: max(22px,env(safe-area-inset-left));
+  padding-right: max(22px,env(safe-area-inset-right));
 }
 
 /**
@@ -72,7 +82,7 @@ strong {
 
 a {
   color: var(--primary-color);
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 i{

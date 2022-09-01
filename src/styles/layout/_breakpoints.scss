@@ -1,0 +1,79 @@
+$breakpoints: (
+  small: 400px,
+  mobile: 576px,
+  tablet: 768px,
+  desktop: 992px,
+  large: 1200px
+);
+
+@mixin landscape {
+  @media (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin portrait {
+  @media (orientation: portrait) {
+    @content;
+  }
+}
+
+@mixin from-small {
+  @media only screen and (min-width: map-get($breakpoints, small)) {
+    @content;
+  }
+}
+
+@mixin to-small {
+  @media only screen and (max-width: map-get($breakpoints, small)-1px) {
+    @content;
+  }
+}
+
+@mixin from-mobile {
+  @media only screen and (min-width: map-get($breakpoints, mobile)) {
+    @content;
+  }
+}
+
+@mixin to-mobile {
+  @media only screen and (max-width: map-get($breakpoints, mobile)-1px) {
+    @content;
+  }
+}
+
+@mixin to-tablet {
+  @media only screen and (max-width: map-get($breakpoints, tablet)-1px) {
+    @content;
+  }
+}
+
+@mixin from-tablet {
+  @media only screen and (min-width: map-get($breakpoints, tablet)) {
+    @content;
+  }
+}
+
+@mixin to-desktop {
+  @media only screen and (max-width: map-get($breakpoints, desktop)-1px) {
+    @content;
+  }
+}
+
+@mixin from-desktop {
+  @media only screen and (min-width: map-get($breakpoints, desktop)) {
+    @content;
+  }
+}
+
+@mixin to-large {
+  @media only screen and (max-width: map-get($breakpoints, large)-1px) {
+    @content;
+  }
+}
+
+@mixin from-large {
+  @media only screen and (min-width: map-get($breakpoints, large)) {
+    @content;
+  }
+}

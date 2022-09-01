@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {createClient, EntryCollection} from "contentful";
+import { createClient, EntryCollection} from "contentful";
 import {environment} from "../../../environments/environment";
 import {NavigationItem} from "@app/layout/models";
 
@@ -19,5 +19,4 @@ export class NavigationItemService {
       Object.assign({}, query, { content_type: "navigation" })
     );
   }
-
 }
