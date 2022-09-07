@@ -1,8 +1,53 @@
-<header>
-  <ul>
-    <li *ngFor="let navigationItem of navigationItems; let i=index">
-      <i *ngIf="navigationItem.fields.icon.length" class="{{ navigationItem.fields.icon }}"></i>
-      <a [routerLink]="navigationItem.fields.url" [ngClass]="navigationItem.fields.class_name">{{ navigationItem.fields.label }}</a>
-    </li>
-  </ul>
+<header class="header">
+  <div class="container">
+    <div class="header__wrapper split">
+      <a [routerLink]="['/']" class="header__brand">
+        <img height="40" src="assets/images/angular_white.svg">
+      </a>
+      <nav class="header__navigation" [ngClass]="{ 'is-opened': showNavigation }">
+        <ul #navigation class="navigation">
+          <li class="navigation__item"
+              *ngFor="let navigationItem of navigationItems"
+              (mouseenter)="onMenuItemMouseEnter($event)"
+              (mouseleave)="onMenuItemMouseLeave($event)"
+              (click)="touchHandler(navigationItem, $event)"
+              [ngClass]="{ 'has-children': navigationItem?.childItems?.length }">
+            <a [routerLink]="navigationItem.url" *ngIf=" !navigationItem.childItems?.length; else mobileHasChildAnchor">
+              <i *ngIf="navigationItem.icon" class="{{ navigationItem.icon }}"></i>
+              <span class="navigation__label">{{ navigationItem.label }}</span>
+            </a>
+            <ng-template #mobileHasChildAnchor>
+              <a href="javascript:void(0);" (click)="childrenDisplayToggle($event)">
+                <span class="navigation__label">{{ navigationItem.label }}</span>
+                <i class="icon icon-keyboard_arrow_down"></i>
+              </a>
+            </ng-template>
+            <div *ngIf="navigationItem?.childItems?.length" class="navigation__children-wrapper">
+              <ul class="navigation__children">
+                <li
+                  *ngFor="let children of navigationItem.childItems"
+                  (click)="touchHandler(navigationItem, $event)"
+                  class="navigation__child"
+                >
+                  <i *ngIf="navigationChildItems[children.sys.id].icon"
+                     class="{{ navigationChildItems[children.sys.id].icon }}"></i>
+                  <a [routerLink]="navigationChildItems[children.sys.id].url">
+                    {{ navigationChildItems[children.sys.id].label }}
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <button
+        class="nav-icon nav-icon--squeeze"
+        (click)="showNavigation = !showNavigation"
+        [ngClass]="{ 'is-opened': showNavigation }"
+      >
+        <div class="nav-icon__lines"></div>
+        <!--        <i class="menu-icon" ></i>-->
+      </button>
+    </div>
+  </div>
 </header>

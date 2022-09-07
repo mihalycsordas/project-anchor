@@ -1,0 +1,86 @@
+@use 'abstracts/functions' as *;
+@use 'layout/breakpoints' as *;
+
+.nav-icon {
+  cursor: pointer;
+  transition: .2s all;
+  position: relative;
+  width: to-rem(34px);
+  height: to-rem(34px);
+  -webkit-tap-highlight-color: transparent;
+  @include from-tablet {
+    display: none;
+  }
+
+  &:after{
+    top: -25%;
+    left: -25%;
+    width: 150%;
+    height: 150%;
+    content: '';
+    display: block;
+    position: absolute;
+  }
+  &__lines{
+    top: 50%;
+    content: '';
+    width: 100%;
+    display: block;
+    position: absolute;
+    height: to-rem(3px);
+    transform: rotate(0);
+    pointer-events: none;
+    margin-top: to-rem(-2px);
+    border-radius: to-rem(3px);
+    background-color: var(--lightest);
+
+    &:before, &:after{
+      content: '';
+      width: 100%;
+      display: block;
+      position: absolute;
+      height: to-rem(3px);
+      transform: rotate(0);
+      pointer-events: none;
+      border-radius: to-rem(3px);
+      background-color: var(--lightest);
+    }
+
+    &:before{
+      top: to-rem(10px);
+      left: to-rem(16px);
+    }
+
+    &:after{
+      left: 0;
+      top: to-rem(-10px);
+    }
+  }
+  &--squeeze{
+    &.is-opened{
+      .nav-icon__lines {
+        background-color: transparent;
+        transition: .2s background-color, .2s top, .2s left, .2s transform .15s;
+        &:before, &:after{
+          top: 0;
+          left: to-rem(8px);
+          transition: .2s background-color, .2s top, .2s left, .2s transform .15s;
+        }
+        &:before{
+          transform: rotate(-45deg);
+        }
+        &:after{
+          transform: rotate(45deg);
+        }
+      }
+    }
+    .nav-icon__lines{
+      width: to-rem(34px);
+      transition: .2s top .2s, .1s left, .2s transform, .4s background-color .2s;
+      &:before, &:after{
+        width: to-rem(18px);
+        transition: .2s top .2s, .1s left, .2s transform, .4s background-color .2s;
+      }
+    }
+  }
+}

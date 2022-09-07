@@ -1,0 +1,196 @@
+@use 'abstracts/functions' as *;
+@use 'layout/breakpoints' as *;
+
+.header {
+  background-color: #181818;
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    height: to-rem(75px);
+    justify-content: space-between;
+    grid-template-columns: to-rem(40px 1fr);
+  }
+
+  &__navigation {
+    @include to-tablet {
+      &:not(.is-opened) {
+        opacity: 0;
+        display: none;
+        pointer-events: none;
+      }
+
+    }
+  }
+
+  .navigation {
+    @include to-tablet {
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      position: fixed;
+      overflow: hidden;
+      overflow-y: auto;
+      top: to-rem(75px);
+      background-color: #151515;
+      padding: 20px;
+
+      i {
+        &:before {
+          position: absolute;
+          right: to-rem(10px);
+          color: var(--lightest);
+        }
+      }
+
+      &__item{
+        position: relative;
+        border-bottom: 1px solid #202020;
+        &.is-active{
+          border-bottom: 0;
+          .navigation__children-wrapper{
+            opacity: 1;
+          }
+          i {
+            &:before {
+              transition: all 0.4s ease;
+              transform: rotate(180deg);
+            }
+          }
+        }
+        &:not(.is-active) {
+          .navigation__children-wrapper{
+            opacity: 0;
+            transition: all 0.4s ease;
+            display: none;
+            pointer-events: none;
+          }
+        }
+        & > a{
+          display: flex;
+          padding: to-rem(20px);
+          color: var(--lightest);
+          font-size: to-rem(18px);
+          justify-content: space-between;
+        }
+      }
+      &__child{
+        background-color: #202020;
+        border-radius: 12px;
+        margin-bottom: 10px;
+        a{
+          display: block;
+          padding: 20px;
+          color: var(--lightest);
+        }
+        &:last-of-type{
+          margin-bottom: 0;
+        }
+      }
+    }
+    @include from-tablet {
+      $self: &;
+      display: flex;
+      justify-content: flex-end;
+
+
+      i {
+        &:before {
+          position: absolute;
+          color: var(--lightest);
+          margin: to-rem(2px 0 0 5px);
+        }
+      }
+
+
+      &__item > a {
+        padding: to-rem(28px 30px);
+        transition: opacity .15s;
+      }
+
+      &__item > a .navigation__label {
+        position: relative;
+
+        &::after {
+          left: 0;
+          content: '';
+          width: 100%;
+          display: block;
+          position: absolute;
+          height: to-rem(3px);
+          bottom: to-rem(-6px);
+          background-color: #9147ff;
+          transition: .15s cubic-bezier(.25, .46, .45, .94);
+        }
+      }
+
+      &__item:not(.has-hover) > a .navigation__label::after {
+        opacity: 0;
+        bottom: to-rem(-12px);
+      }
+
+      &__item {
+        &.has-hover i {
+          &:before {
+            transition: all 0.4s ease;
+            transform: rotate(180deg);
+          }
+        }
+      }
+
+      &.has-hover .navigation__item:not(.has-hover) > a {
+        opacity: 0.4;
+      }
+
+      &__label {
+        font-weight: bold;
+        text-decoration: none;
+        color: var(--lightest);
+        font-size: to-rem(14px);
+      }
+
+      &__children-wrapper {
+        position: fixed;
+        top: to-rem(49px);
+        background-color: var(--darkest-color);
+      }
+
+      &__item:not(.has-hover) {
+        .navigation__children-wrapper {
+          opacity: 0;
+          z-index: 0;
+          transform: scaleY(0);
+          transition-delay: .25s;
+        }
+
+      }
+
+      &__children {
+        background-color: white;
+        box-shadow: to-rem(0 10px 70px) rgb(0 0 0 / 15%);
+      }
+
+      &__child {
+        &.has-hover {
+          a {
+            color: #9147ff;
+          }
+        }
+
+        border-bottom: 1px solid #e7e7e9;
+
+        &:last-of-type {
+          border-bottom: 0;
+        }
+
+        a {
+          display: block;
+          color: #0d0c22;
+          font-weight: bold;
+          margin: to-rem(0 20px);
+          padding: to-rem(15px 20px);
+        }
+      }
+    }
+  }
+}

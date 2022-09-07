@@ -1,3 +1,3 @@
 /* eslint-disable no-restricted-imports */
-export * from './layout.enum'
-export * from './navigation-item.interface'
+export * from '@layout/models/layout.enum'
+export * from '@layout/models/navigation-item.interface'
