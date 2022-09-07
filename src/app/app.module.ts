@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import {HttpClientModule} from "@angular/common/http";
-import {LayoutModule} from "@app/layout/layout.module";
+import {LayoutModule} from "@layout/layout.module";
 
 @NgModule({
   declarations: [

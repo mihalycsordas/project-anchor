@@ -1,2 +1,2 @@
 /* eslint-disable no-restricted-imports */
-export * from './header/header.component';
+export * from '@layout/components/header/header.component';

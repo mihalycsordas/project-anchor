@@ -12,10 +12,6 @@
     grid-template-columns: to-rem(40px 1fr);
   }
 
-  &__brand {
-
-  }
-
   &__navigation {
     @include to-tablet {
       &:not(.is-opened) {

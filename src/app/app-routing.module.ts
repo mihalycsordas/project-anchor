@@ -3,8 +3,13 @@ import {NgModule} from "@angular/core";
 import {HeaderComponent} from "@app/layout/components";
 
 const routes: Routes = [
-  { path: '', redirectTo: '/pages', pathMatch: 'full' },
+  { path: '', pathMatch: 'full', redirectTo: '/pages'  },
   { path: 'pages', component: HeaderComponent },
+  { path: ''},
+  {
+    path: '**',
+    redirectTo: '',
+  },
 ];
 
 @NgModule({
