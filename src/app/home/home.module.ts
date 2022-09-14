@@ -1,11 +1,11 @@
-import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
-import { FooterComponent, HeaderComponent } from '@layout/components';
+import { RouterModule } from '@angular/router';
 import { NavigationItemService } from '@layout/services';
+import { HomeComponent } from '@app/home/components';
 
-const COMPONENTS = [HeaderComponent, FooterComponent];
+const COMPONENTS = [HomeComponent];
 
 @NgModule({
   declarations: [...COMPONENTS],
@@ -13,4 +13,4 @@ const COMPONENTS = [HeaderComponent, FooterComponent];
   exports: [...COMPONENTS],
   providers: [NavigationItemService],
 })
-export class LayoutModule {}
+export class HomeModule {}

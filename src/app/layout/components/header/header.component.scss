@@ -19,7 +19,6 @@
         display: none;
         pointer-events: none;
       }
-
     }
   }
 
@@ -43,12 +42,12 @@
         }
       }
 
-      &__item{
+      &__item {
         position: relative;
         border-bottom: 1px solid #202020;
-        &.is-active{
+        &.is-active {
           border-bottom: 0;
-          .navigation__children-wrapper{
+          .navigation__children-wrapper {
             opacity: 1;
           }
           i {
@@ -59,14 +58,14 @@
           }
         }
         &:not(.is-active) {
-          .navigation__children-wrapper{
+          .navigation__children-wrapper {
             opacity: 0;
             transition: all 0.4s ease;
             display: none;
             pointer-events: none;
           }
         }
-        & > a{
+        & > a {
           display: flex;
           padding: to-rem(20px);
           color: var(--lightest);
@@ -74,16 +73,16 @@
           justify-content: space-between;
         }
       }
-      &__child{
+      &__child {
         background-color: #202020;
         border-radius: 12px;
         margin-bottom: 10px;
-        a{
+        a {
           display: block;
           padding: 20px;
           color: var(--lightest);
         }
-        &:last-of-type{
+        &:last-of-type {
           margin-bottom: 0;
         }
       }
@@ -93,7 +92,6 @@
       display: flex;
       justify-content: flex-end;
 
-
       i {
         &:before {
           position: absolute;
@@ -102,10 +100,9 @@
         }
       }
 
-
       &__item > a {
         padding: to-rem(28px 30px);
-        transition: opacity .15s;
+        transition: opacity 0.15s;
       }
 
       &__item > a .navigation__label {
@@ -120,7 +117,7 @@
           height: to-rem(3px);
           bottom: to-rem(-6px);
           background-color: #9147ff;
-          transition: .15s cubic-bezier(.25, .46, .45, .94);
+          transition: 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
       }
 
@@ -160,9 +157,8 @@
           opacity: 0;
           z-index: 0;
           transform: scaleY(0);
-          transition-delay: .25s;
+          transition-delay: 0.25s;
         }
-
       }
 
       &__children {
