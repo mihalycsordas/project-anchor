@@ -1,0 +1,128 @@
+@use 'abstracts/functions' as *;
+@use 'layout/breakpoints' as *;
+
+.footer {
+  $self: &;
+  margin-top: to-rem(40px);
+  padding: to-rem(40px 0);
+  background-color: #181818;
+  &__wrapper {
+    display: grid;
+    justify-content: space-between;
+
+    @include from-tablet {
+      column-gap: to-rem(40px);
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    @include to-tablet {
+      row-gap: to-rem(40px);
+      grid-template-columns: 1fr;
+    }
+    h4 {
+      color: var(--lightest);
+      padding-bottom: to-rem(20px);
+      @include from-tablet {
+      }
+      @include to-tablet {
+        margin-bottom: to-rem(20px);
+        border-bottom: to-rem(1px) solid rgba(var(--lightest-color), 0.1);
+      }
+    }
+  }
+
+  &__about {
+    @include to-tablet {
+      text-align: center;
+      a{
+        display: flex;
+        justify-content: center;
+      }
+    }
+    p {
+      margin-top: to-rem(10px);
+    }
+  }
+  //TODO: Create general solution for this styles
+  &__social,
+  &__company,
+  &__navigations {
+    .footer__navigation-item {
+      font-weight: bold;
+      @include from-tablet {
+        margin: to-rem(10px 0);
+        font-size: to-rem(12px);
+      }
+      @include to-tablet {
+        margin: to-rem(15px 0);
+        font-size: to-rem(14px);
+      }
+      a {
+        color: var(--lightest);
+      }
+    }
+  }
+
+  &__copyright {
+    @include from-tablet {
+      display: flex;
+      gap: to-rem(20px);
+      font-size: to-rem(12px);
+    }
+    @include to-tablet {
+      display: grid;
+      text-align: center;
+      font-size: to-rem(14px);
+    }
+    font-weight: bold;
+    margin-top: to-rem(40px);
+    padding-top: to-rem(40px);
+    border-top: to-rem(1px) solid rgba(var(--lightest-color), 0.1);
+    p {
+      margin-bottom: 0;
+      color: var(--lightest);
+    }
+    #{ $self }__navigation {
+      @include from-tablet {
+        display: flex;
+        gap: to-rem(20px);
+      }
+      @include to-tablet {
+        display: grid;
+      }
+      &.has-hover {
+        .footer__navigation-item:not(.has-hover) {
+          & > a {
+            opacity: 0.4;
+          }
+        }
+      }
+      &-item {
+        @include from-tablet {
+          padding-left: to-rem(20px);
+          border-left: to-rem(1px) solid rgba(var(--lightest-color), 0.1);
+        }
+        &:not(.has-hover) {
+          > a::after {
+            opacity: 0;
+            bottom: to-rem(-12px);
+          }
+        }
+        a {
+          position: relative;
+          color: var(--lightest);
+          &::after {
+            left: 0;
+            content: '';
+            width: 100%;
+            display: block;
+            position: absolute;
+            height: to-rem(3px);
+            bottom: to-rem(-6px);
+            background-color: #9147ff;
+            transition: 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          }
+        }
+      }
+    }
+  }
+}
