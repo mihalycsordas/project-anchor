@@ -1,0 +1,9 @@
+<swiper [config]="config">
+  <ng-template swiperSlide *ngFor="let image of Images">
+    <picture class="image__placeholder">
+      <source media="(max-width: 480px)" [srcset]="image.mobile_placeholder" />
+      <source media="(min-width: 481px)" [srcset]="image.src" />
+      <img [src]="image.src" [alt]="image.alternative_text" />
+    </picture>
+  </ng-template>
+</swiper>
