@@ -11,7 +11,9 @@ const COMPONENTS = [HeaderComponent, FooterComponent, SwiperComponent];
 
 @NgModule({
   declarations: [...COMPONENTS],
-  imports: [CommonModule, BrowserModule, RouterModule.forRoot([]), SwiperModule],
+  imports: [CommonModule, BrowserModule, RouterModule.forRoot([], {
+    initialNavigation: 'enabledBlocking'
+}), SwiperModule],
   exports: [...COMPONENTS],
   providers: [NavigationItemService],
 })

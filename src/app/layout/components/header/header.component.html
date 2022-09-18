@@ -1,8 +1,8 @@
 <header class="header">
   <div class="container">
     <div class="header__wrapper split">
-      <a [routerLink]="['/']" class="header__brand">
-        <img height="40" src="assets/images/angular_white.svg">
+      <a [routerLink]="['/']" class="header__brand" aria-label="Project Anchor logo">
+        <img height="40" width="40" src="assets/images/angular_white.svg" alt="Project Anchor logo">
       </a>
       <nav class="header__navigation" [ngClass]="{ 'is-opened': showNavigation }">
         <ul #navigation class="navigation">

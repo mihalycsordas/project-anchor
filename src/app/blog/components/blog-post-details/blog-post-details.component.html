@@ -1,0 +1,8 @@
+<div class="container">
+  <div *ngIf="blogPost$ | async as blogPost">
+
+    {{ blogPostImage }}
+    <h1>{{ blogPost.fields.title }}</h1>
+
+  </div>
+</div>

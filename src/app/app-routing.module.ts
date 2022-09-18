@@ -1,20 +1,29 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { HomeComponent } from '@app/home/components';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', component: HomeComponent },
   {
-    path: '**',
+    path: '',
+    loadChildren: () => import('./home/home-routing.module').then((m) => m.HomeRoutingModule),
+  },
+  {
+    path: 'blog',
+    loadChildren: () => import('./blog/blog-routing.module').then((m) => m.BlogRoutingModule),
+  },
+  {
+    path: '',
     redirectTo: '',
+    pathMatch: 'full',
   },
 ];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
-      initialNavigation: 'enabledBlocking',
-    }),
+    scrollPositionRestoration: 'enabled',
+    onSameUrlNavigation: 'reload',
+    initialNavigation: 'enabledBlocking'
+}),
   ],
   exports: [RouterModule],
 })

@@ -1,2 +1,2 @@
 /* eslint-disable no-restricted-imports */
-export * from '@app/home';
+export * from './blog-post.interface';
