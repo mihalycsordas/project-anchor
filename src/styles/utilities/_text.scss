@@ -93,29 +93,3 @@
     color: var(--accent-text-color);
   }
 }
-
-@if $responsive {
-  @each $name in $breakpoint-has-helpers {
-    $breakpoint: map-get($breakpoints, $name);
-
-    @include media('>=#{$breakpoint}') {
-      .text {
-        &--#{$name}-left {
-          text-align: left;
-        }
-
-        &--#{$name}-right {
-          text-align: right;
-        }
-
-        &--#{$name}-center {
-          text-align: center;
-        }
-
-        &--#{$name}-justify {
-          text-align: justify;
-        }
-      }
-    }
-  }
-}

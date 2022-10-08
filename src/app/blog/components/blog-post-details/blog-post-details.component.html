@@ -1,8 +1,8 @@
 <div class="container">
-  <div *ngIf="blogPost$ | async as blogPost">
-
-    {{ blogPostImage }}
+  <ng-container *ngIf="blogPost$ | async as blogPost">
+  <div class="main">
     <h1>{{ blogPost.fields.title }}</h1>
-
+    <p [innerHtml]="_returnHtmlFromRichText(blogPost.fields.content)"></p>
   </div>
+  </ng-container>
 </div>

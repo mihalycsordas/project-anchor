@@ -1,0 +1,6 @@
+@use 'abstracts/functions' as *;
+
+.container{
+  z-index: 1;
+  margin-top: to-rem(40px);
+}

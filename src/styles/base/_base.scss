@@ -15,8 +15,6 @@ body {
   margin: 0 auto;
   max-width: 980px;
   padding: 0 22px;
-  position: relative;
-  z-index: 2;
   padding-left: max(22px,env(safe-area-inset-left));
   padding-right: max(22px,env(safe-area-inset-right));
 }

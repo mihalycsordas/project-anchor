@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
-import { BlogPageComponent, BlogPostDetailsComponent } from '@app/blog/components';
+import { BlogPageComponent, BlogPostDetailsComponent, BlogPostListComponent } from '@app/blog/components';
 import { BlogRoutingModule } from '@app/blog/blog-routing.module';
-import { AllBlogPostComponent } from './components/all-blog-post/all-blog-post.component';
+import { SwiperModule } from 'swiper/angular';
 
-const COMPONENTS = [BlogPageComponent, AllBlogPostComponent, BlogPostDetailsComponent];
+const COMPONENTS = [BlogPageComponent, BlogPostListComponent, BlogPostDetailsComponent];
 
 @NgModule({
-  declarations: [...COMPONENTS, AllBlogPostComponent],
-  imports: [BlogRoutingModule, CommonModule, BrowserModule],
+  declarations: [...COMPONENTS],
+  imports: [BlogRoutingModule, CommonModule, BrowserModule, SwiperModule],
   exports: [...COMPONENTS],
 })
 export class BlogModule {}

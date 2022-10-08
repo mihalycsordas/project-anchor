@@ -1,5 +1,12 @@
 <main>
   <div class="container">
     <p>home works!</p>
+    <section>
+      <div class="blog__heading split divider--20">
+        <h3>Latest news</h3>
+        <a routerLink="/blog">See all</a>
+      </div>
+      <app-blog-post-list [blogPosts]="blogPosts" [numberOfPost]="3"></app-blog-post-list>
+    </section>
   </div>
 </main>

@@ -3,7 +3,6 @@
 
 :host{
   display: grid;
-  margin-top: to-rem(40px);
 }
 
 .all-post {
@@ -66,11 +65,10 @@
       display: flex;
       font-weight: bold;
       margin: to-rem(10px 0);
-      font-size: to-rem(16px);
       color: var(--primary-color);
     }
     &__author{
-      color: var(--darkest);
+      color: var(--primary-text-color);
       font-size: to-rem(12px);
     }
   }

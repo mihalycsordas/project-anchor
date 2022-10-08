@@ -8,7 +8,7 @@ const routes: Routes = [
     component: BlogPageComponent,
   },
   {
-    path: 'blog/:id',
+    path: 'blog/:url',
     component: BlogPostDetailsComponent,
   },
 ];

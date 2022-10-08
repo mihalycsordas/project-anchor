@@ -1,0 +1,10 @@
+.blog{
+  &__heading{
+    h3{
+      color: var(--primary-color)
+    }
+    a{
+      text-decoration: underline;
+    }
+  }
+}

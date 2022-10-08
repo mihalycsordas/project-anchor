@@ -47,3 +47,18 @@ $heading-sizes: (
   h5: to-rem(14px) to-rem(16px),
   h6: to-rem(12px) to-rem(14px),
 );
+
+/**
+ * Spaces
+*/
+$spaces: (0, 4, 8, 16, 24, 32, 42, 48, 56, 64, 72, 128);
+
+/**
+ * Borders
+*/
+$borders: (1, 2);
+
+/**
+ * Dividers
+*/
+$dividers: (5, 10, 20, 25, 30, 40, 50, 60, 70);

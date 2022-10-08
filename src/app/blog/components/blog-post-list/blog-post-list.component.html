@@ -1,0 +1,46 @@
+<div class="all-post">
+  <ng-container *ngIf="blogPosts | async as blogPosts">
+    <ng-container *ngFor="let blogPost of blogPosts | slice: 0:numberOfPost; let first = first">
+      <ng-container *ngIf="!!blogPost.fields.visible">
+        <a [routerLink]="['/blog/'] + blogPost.fields.url">
+        <article class="blog-post" [class.first]="first">
+          <div class="blog-post--new" *ngIf="first">New</div>
+          <picture class="blog-post__image">
+            <source
+              media="(max-width: 480px)"
+              [srcset]="blogPost.fields.featuredImage?.fields?.file?.url + '?fit=fill&w=500&h=500&q=50'"
+            />
+            <source
+              media="(min-width: 481px)"
+              [srcset]="blogPost.fields.featuredImage?.fields?.file?.url + '?fit=fill&w=300&q=100'"
+            />
+            <img
+              [src]="
+                defaultBlogPostImage || blogPost.fields.featuredImage?.fields?.file?.url + '?fit=scale&w=300&q=100'
+              "
+              [alt]="blogPost.fields.title"
+              loading="lazy"
+            />
+          </picture>
+          <div class="blog-post__wrapper">
+            <span class="blog-post__date text--small">{{ blogPost.fields.updateDate | date }}</span>
+            <h3 class="blog-post__title text--large">{{ blogPost.fields.title }}</h3>
+            <span class="blog-post__author"
+              >Written by: <b>{{ blogPost.fields.author }}</b></span
+            >
+          </div>
+        </article>
+        </a>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+</div>
+<ng-template #postMobileSwiper>
+  <!--<swiper [slidesPerView]="2.5" [spaceBetween]="20">
+    &lt;!&ndash;<ng-template swiperSlide *ngFor="let post of blogPosts, let first = first">
+      <article>
+      {{ post.title }}
+      </article>
+    </ng-template>&ndash;&gt;
+  </swiper>-->
+</ng-template>
